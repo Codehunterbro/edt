@@ -156,7 +156,7 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #333;
+  color: white;
   transition: color 0.3s ease;
 }
 
@@ -164,14 +164,15 @@ nav a:hover {
   color: #5E1AEB;
 }
 .login-button {
-color: #333;
+background-color:rgb(255, 177, 104);
+color: white;
 text-decoration: none;
 font-size: 14px;
 font-weight: 500;
 transition: color 0.3s ease;
 padding: 10px 20px;
 border-radius: 20px;
-border: solid 1px #333;
+border: solid 1px white;
 
 }
 
@@ -236,23 +237,27 @@ background-color: #333; /* Keep the same color */
 /* Hero Section */
 .hero {
   position: relative;
-  height: 110vh;
+  height: 100vh;
   overflow: hidden;
 }
 
 #hero-bg {
   position: absolute;
-  padding-top: 10vh;
-  right: 0;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+  padding-top: 0px; /* Adds space at the top of the video */
+  right: 0; /* Aligns video to the right */
+   /* Full height of the parent (.hero) */
+  object-fit: cover; /* Ensures video fills its container without distortion */
+  z-index: -1; /* Fixed typo: Places video behind content */
+  width: 100%; /* Ensures it spans the full width (adjust if you want it narrower) */
+  top: 0; /* Aligns with the top of the container, offset by padding-top */
 }
+
 
 .hero-container {
   padding-top: 30px;
   padding-left: 7vw;
   width: 70%;
+  z-index: 1; /* Keeps content above the video */
 }
 
 .hero-content {
@@ -260,6 +265,7 @@ background-color: #333; /* Keep the same color */
 }
 
 .hero h1 {
+  color: white;
   font-size: 64px;
   font-weight: 500;
   margin-bottom: 47px;
@@ -267,7 +273,7 @@ background-color: #333; /* Keep the same color */
 }
 
 .hero p {
-  color: #4B4B4B;
+  color: white;
   width: 90%;
   font-size: 1.1em;
   line-height: 1.5;
@@ -306,54 +312,75 @@ background-color: #333; /* Keep the same color */
 }
 
 /* Responsive Styles */
-@media (max-width: 1024px) {
-  .hero{
-    height: 85vh;
-}
+@media (max-width: 1230px) {
+  .hero {
+      height: 85vh; /* Adjusted height */
+  }
+
   .hero-content {
       width: 70%;
   }
-  
-  .hero h1 {
+
+  .hero-content h1 {
       font-size: 48px;
   }
-  
+
   #hero-bg {
-      max-width: 55%;
+      height: 100%; /* Matches .hero’s 85vh */
+      width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+      height: 85vh; /* Adjusted height */
+  }
+
+  .hero-content {
+      width: 70%;
+  }
+
+  .hero-content h1 {
+      font-size: 48px;
+  }
+
+  #hero-bg {
+      height: 100%; /* Matches .hero’s 85vh */
+      width: 100%;
   }
 }
 
 @media (max-width: 768px) {
-  .hero{
-      height: 65vh;
+  .hero {
+      height: 65vh; /* Adjusted height */
   }
+
   .head-container {
-    margin-top: 15px;
+      margin-top: 15px;
       width: 90%;
       padding: 15px 0;
+      margin-left: auto;
+      margin-right: auto;
   }
-  .nav-controls {
-display: flex;
-align-items: center;
-gap: 15px;
-}
-.logo1 {
-  padding-top: 0;
-  color: #5E1AEB;
-  font-size: 25px;
-  font-weight: 600;
-  z-index: 102;
-}
 
+  .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+  }
+
+  .logo1 {
+      padding-top: 0;
+      color: #5E1AEB;
+      font-size: 25px;
+      font-weight: 600;
+  }
 
   .hamburger {
       display: block;
-     
-      
- 
   }
 
-  nav ul {
+  .nav-links {
       position: fixed;
       top: 0;
       right: -100%;
@@ -366,32 +393,34 @@ gap: 15px;
       z-index: 101;
   }
 
-  nav ul.active {
+  .nav-links.active {
       right: 0;
   }
 
-  nav ul li {
+  .nav-links li {
       margin: 20px 0;
   }
 
-  nav ul li a {
+  .nav-links li a {
       font-size: 24px;
       display: block;
+      color: #333;
   }
+
   .login-button {
-padding: 8px 15px;
-font-size: 14px;
-}
+      padding: 8px 15px;
+      font-size: 14px;
+  }
 
   .signup-button {
-padding: 8px 15px;
-font-size: 14px;
-z-index: 13;
-}
+      padding: 8px 15px;
+      font-size: 14px;
+  }
+
   #hero-bg {
-      opacity: 0.4;
+    
+      height: 75%; /* Matches .hero’s 65vh */
       width: 100%;
-      max-width: none;
   }
 
   .hero-container {
@@ -405,12 +434,12 @@ z-index: 13;
       text-align: center;
   }
 
-  .hero h1 {
+  .hero-content h1 {
       font-size: 36px;
       margin-bottom: 30px;
   }
 
-  .hero p {
+  .hero-content p {
       width: 100%;
       font-size: 1em;
       margin-bottom: 40px;
@@ -418,35 +447,37 @@ z-index: 13;
 }
 
 @media (max-width: 480px) {
-  .hero{
-    height: 65vh;
-}
+  .hero {
+      height: 65vh; /* Consistent with 768px */
+  }
+
   .head-container {
       padding: 10px 0;
   }
-  .nav-controls {
-gap: 10px;
-}
 
-  .logo {
+  .nav-controls {
+      gap: 10px;
+  }
+
+  .logo1 {
       font-size: 15px;
   }
-  .login-button {
-padding: 6px 12px;
-font-size: 12px;
-}
 
+  .login-button {
+      padding: 6px 12px;
+      font-size: 12px;
+  }
 
   .signup-button {
       padding: 6px 12px;
       font-size: 12px;
   }
 
-  .hero h1 {
+  .hero-content h1 {
       font-size: 28px;
   }
 
-  .hero p {
+  .hero-content p {
       font-size: 0.9em;
   }
 
@@ -454,12 +485,17 @@ font-size: 12px;
       padding: 10px 20px;
       font-size: 14px;
   }
+
+  #hero-bg {
+      height: 75%; /* Matches .hero’s 65vh */
+      width: 100%;
+  }
 }
 /* features */
 
 
 .features {
-  padding: 80px 0;
+  padding: 40px 0 80px 0;
   width: 85%;
   margin: 0 auto;
  
