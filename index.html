@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+    <title>Ed-Tech</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+</style>
+<body>
+    <header>
+        <div class="head-container">
+            <div class="logo1">INTERNITY</div>               
+            <nav>
+                <ul class="nav-links" id="mobileMenu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Cart</a></li>
+                </ul>  
+            </nav>  
+            <div class="nav-controls">
+                <a href="auth.html" class="login-button">LogIn</a>
+                <a href="auth.html" class="signup-button">SignUp</a>
+                <button class="hamburger" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+    </header>
+    <section class="hero"> 
+        <img id="hero-bg" src="./images/BG.png" alt="">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Getting <span style="color: #5E1AEB;">Quality</span> Education is Now More <span style="color: #5E1AEB;">Easy</span></h1>
+                <p>Transform your passion into expertise with our diverse range of expert-led courses. Learn at your own pace, anytime, anywhere, and unlock endless opportunities to grow, achieve, and succeed. Your journey toward excellence starts today</p>
+                <a href="#" class="get-started-button">Get started</a>
+            </div>
+        </div>
+    </section>
+
+        <section class="features">
+        <h2 class="features-title">Here's What We Bring to the Table</h2>
+        
+        <div class="features-container">
+            <!-- Left side image -->
+            <div class="image-container">
+                <img src="./images/boyontable.png" alt="Developer illustration">
+            </div>
+
+            <!-- Right side features -->
+            <div class="features-list">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./images/notebook.png" alt="Internships icon">
+                    </div>
+                    <div class="feature-content">
+                        <h3>3 Internships</h3>
+                        <p>Transform your passion into expertise with our diverse range of expert-led courses.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./images/tickmark.png" alt="CV icon">
+                    </div>
+                    <div class="feature-content">
+                        <h3>CV Development</h3>
+                        <p>Transform your passion into expertise with our diverse range of expert-led courses.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="./images/laptop.png" alt="Projects icon">
+                    </div>
+                    <div class="feature-content">
+                        <h3>9 projects</h3>
+                        <p>Transform your passion into expertise with our diverse range of expert-led courses.</p>
+                    </div>
+                </div>
+
+                <button class="get-started">Get started</button>
+            </div>
+        </div>
+    </section>
+    <section class="courses">
+        <div class="courses-container">
+            <div class="courses-header">
+                <h2>Popular courses for you</h2>
+                <a href="#" class="see-all">See all courses</a>
+            </div>
+            <p class="courses-subtitle">Transform your passion into expertise with our diverse range of expert-led courses.</p>
+            
+            <div class="course-grid">
+                <!-- Course Card 1 -->
+                <div class="course-card">
+                    <img src="./images/Imagery.png" alt="Web Development" class="course-image">
+                    <div class="course-content">
+                        <h3>Web development</h3>
+                        <div class="instructor">
+                            <img src="https://placehold.co/24x24" alt="Instructor" class="instructor-image">
+                            <span>@shahid</span>
+                        </div>
+                        <p class="description">Build 15 web development projects for your portfolio, ready to apply for junior developer jobs.</p>
+                        <div class="course-meta">
+                            <span class="duration">15 weeks</span>
+                            <span class="price">₹3,999</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="buy-now">Buy Now</button>
+                            <button class="add-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div class="course-card">
+                    <img src="./images/imagery.png" alt="App Development" class="course-image">
+                    <div class="course-content">
+                        <h3>App Development</h3>
+                        <div class="instructor">
+                            <img src="https://placehold.co/24x24" alt="Instructor" class="instructor-image">
+                            <span>@shahid</span>
+                        </div>
+                        <p class="description">Build 15 app development projects for your portfolio, ready to apply for junior developer jobs.</p>
+                        <div class="course-meta">
+                            <span class="duration">15 weeks</span>
+                            <span class="price">₹3,999</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="buy-now">Buy Now</button>
+                            <button class="add-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="course-card">
+                    <img src="./images/imagery.png" alt="UI/UX Design" class="course-image">
+                    <div class="course-content">
+                        <h3>UI/UX Design</h3>
+                        <div class="instructor">
+                            <img src="https://placehold.co/24x24" alt="Instructor" class="instructor-image">
+                            <span>@shahid</span>
+                        </div>
+                        <p class="description">Build 15 UI/UX design projects for your portfolio, ready to apply for junior designer jobs.</p>
+                        <div class="course-meta">
+                            <span class="duration">15 weeks</span>
+                            <span class="price">₹3,999</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="buy-now">Buy Now</button>
+                            <button class="add-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="./images/imagery.png" alt="Web Development" class="course-image">
+                    <div class="course-content">
+                        <h3>Web development</h3>
+                        <div class="instructor">
+                            <img src="https://placehold.co/24x24" alt="Instructor" class="instructor-image">
+                            <span>@shahid</span>
+                        </div>
+                        <p class="description">Build 15 web development projects for your portfolio, ready to apply for junior developer jobs.</p>
+                        <div class="course-meta">
+                            <span class="duration">15 weeks</span>
+                            <span class="price">₹3,999</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="buy-now">Buy Now</button>
+                            <button class="add-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div class="course-card">
+                    <img src="./images/imagery.png" alt="App Development" class="course-image">
+                    <div class="course-content">
+                        <h3>App Development</h3>
+                        <div class="instructor">
+                            <img src="https://placehold.co/24x24" alt="Instructor" class="instructor-image">
+                            <span>@shahid</span>
+                        </div>
+                        <p class="description">Build 15 app development projects for your portfolio, ready to apply for junior developer jobs.</p>
+                        <div class="course-meta">
+                            <span class="duration">15 weeks</span>
+                            <span class="price">₹3,999</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="buy-now">Buy Now</button>
+                            <button class="add-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="course-card">
+                    <img src="./images/imagery.png" alt="UI/UX Design" class="course-image">
+                    <div class="course-content">
+                        <h3>UI/UX Design</h3>
+                        <div class="instructor">
+                            <img src="./images/Avatar.png" alt="Instructor" class="instructor-image">
+                            <span>@shahid</span>
+                        </div>
+                        <p class="description">Build 15 UI/UX design projects for your portfolio, ready to apply for junior designer jobs.</p>
+                        <div class="course-meta">
+                            <span class="duration">15 weeks</span>
+                            <span class="price">₹3,999</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="buy-now">Buy Now</button>
+                            <button class="add-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repeat the same 3 cards -->
+                <!-- Cards 4-6 (identical structure to 1-3) -->
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="testimonial-section">
+        <h2 class="section-title">What our students are saying about us</h2>
+        
+        <!-- Right to Left Scrolling Container -->
+        <div class="scroll-container" id="rtl-container">
+            <div class="testimonial-track" id="rtl-track">
+                <!-- Testimonial Cards -->
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Cardinal ensures we're making decisions based on data we can trust and gives stakeholders visibility into results
+                        without constant back and forth among teams.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Christopher" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Christopher Byrum</span>
+                            <span class="author-title">VP Product, Puls</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Cardinal is a lifesaver for us! We've been with them throughout 2023 and I can't remember how we were managing
+                        customer feedback before.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Josh" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Josh Christensen</span>
+                            <span class="author-title">Founder & CTO, Hona</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Holding a product strategy meeting? Cardinal offers us something unique (including Productboard). Being able to tie
+                        feedback items, features, and more.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Todd" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Todd Wilkens</span>
+                            <span class="author-title">Chief Product Officer, Qualio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Being good at capturing signals is key to our success! Knowing what the customers really say and mapping that to
+                        initiatives is really hard.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Evyatar" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Evyatar Ram</span>
+                            <span class="author-title">VP Product, Singular</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Understanding customer health, commitments, and resource allocation is something I'm always chasing to improve.
+                        Cardinal is great at that in my mind.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Tom" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Tom Mayblum</span>
+                            <span class="author-title">Product Group Lead, Armis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Cardinal is the best way to take a Revenue-driven product approach I've seen. Being able to tie feature requests
+                        to their revenue impact is unique.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Zack" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Zack Pennington</span>
+                            <span class="author-title">Chief Product Officer, Forecastr</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Left to Right Scrolling Container -->
+        <div class="scroll-container" id="ltr-container">
+            <div class="testimonial-track" id="ltr-track">
+                <!-- Testimonial Cards -->
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Cardinal ensures we're making decisions based on data we can trust and gives stakeholders visibility into results
+                        without constant back and forth among teams.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Christopher" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Christopher Byrum</span>
+                            <span class="author-title">VP Product, Puls</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Cardinal is a lifesaver for us! We've been with them throughout 2023 and I can't remember how we were managing
+                        customer feedback before.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Josh" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Josh Christensen</span>
+                            <span class="author-title">Founder & CTO, Hona</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Holding a product strategy meeting? Cardinal offers us something unique (including Productboard). Being able to tie
+                        feedback items, features, and more.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Todd" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Todd Wilkens</span>
+                            <span class="author-title">Chief Product Officer, Qualio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Being good at capturing signals is key to our success! Knowing what the customers really say and mapping that to
+                        initiatives is really hard.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Evyatar" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Evyatar Ram</span>
+                            <span class="author-title">VP Product, Singular</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Understanding customer health, commitments, and resource allocation is something I'm always chasing to improve.
+                        Cardinal is great at that in my mind.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Tom" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Tom Mayblum</span>
+                            <span class="author-title">Product Group Lead, Armis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Cardinal is the best way to take a Revenue-driven product approach I've seen. Being able to tie feature requests
+                        to their revenue impact is unique.</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Zack" class="author-image">
+                        <div class="author-info">
+                            <span class="author-name">Zack Pennington</span>
+                            <span class="author-title">Chief Product Officer, Forecastr</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <section class="contact-container">
+        <h2>Subscribe our NewsLetter</h2>
+        <div class="parent-container">
+            
+            <div class="main-container">
+                
+              <!-- Contact Form Section -->
+              <div class="contact-container">
+                  
+                  <form id="contact-form">
+                      <div class="form-group">
+                          <label for="name">Name</label>
+                          <input type="text" id="name" required>
+                      </div>
+          
+                      <div class="form-group">
+                          <label for="phone">Phone Number</label>
+                          <input type="tel" id="phone" required>
+                      </div>
+          
+                      <div class="form-group">
+                          <label>Select Service</label>
+                          <div class="service-options">
+                              <div class="service-option" data-service="Web Development">Web Development</div>
+                              <div class="service-option" data-service="Drone View">Drone View</div>
+                              <div class="service-option" data-service="AR Building">AR Building</div>
+                              <div class="service-option" data-service="Doll House">Doll House</div>
+                              <div class="service-option" data-service="360 Room Tour">360 Room Tour</div>
+                              <div class="service-option" data-service="AR Video">AR Video</div>
+                          </div>
+                      </div>
+          
+                      <div class="form-group">
+                          <label for="message">Your Message</label>
+                          <textarea id="message" placeholder="Please provide additional details about your project..." required></textarea>
+                      </div>
+          
+                      <button class="sub-button"type="submit">Send Message</button>
+                  </form>
+              </div>
+          
+              <!-- Video Section --->
+              <div class="video-container">
+                  <video autoplay loop muted playsinline>
+                      <source src="./images/3D Globe white bg.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                  </video>
+              </div>
+          </div>
+          </div>
+
+
+    </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo and Social Section -->  
+            <div class="footer-left">
+                <div class="logo">
+                    <i class="fa-solid fa-shapes"></i>
+                    <span>Logo</span>
+                </div>
+                <p class="footer-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit aliquam
+                </p>
+                <div class="social-links">
+                    <a href="#"><img src="" alt=""><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Product Section -->
+            <div class="footer-links">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Case studies</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Updates</a></li>
+                </ul>
+            </div>
+
+            <!-- Company Section -->
+            <div class="footer-links">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Culture</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <!-- Support Section -->
+            <div class="footer-links">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Getting started</a></li>
+                    <li><a href="#">Help center</a></li>
+                    <li><a href="#">Server status</a></li>
+                    <li><a href="#">Report a bug</a></li>
+                    <li><a href="refund-Policy.html">refund-Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="footer-contact">
+                <h3>Contacts us</h3>
+                <div class="contact-info">
+                    <p><i class="far fa-envelope"></i> contact@company.com</p>
+                    <p><i class="fas fa-phone"></i> (414) 687 - 5892</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 794 Mcallister St<br>San Francisco, 94102</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>Copyright © 2022 BRIX Templates</p>        
+            <div class="footer-bottom-links">
+                <a href="Terms-and-Conditions.html">Terms and Conditions</a> | <a href="privacy-policy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+    
+
+
+<script src="script.js" ></script>
+<script src="contact.js"></script>
+</body>
+</html>         

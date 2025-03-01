@@ -1,0 +1,358 @@
+.poppins-thin {
+    font-family: "Poppins", serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .poppins-extralight {
+    font-family: "Poppins", serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .poppins-light {
+    font-family: "Poppins", serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .poppins-regular {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .poppins-medium {
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .poppins-semibold {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .poppins-bold {
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .poppins-extrabold {
+    font-family: "Poppins", serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  .poppins-black {
+    font-family: "Poppins", serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .poppins-thin-italic {
+    font-family: "Poppins", serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .poppins-extralight-italic {
+    font-family: "Poppins", serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+  
+  .poppins-light-italic {
+    font-family: "Poppins", serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .poppins-regular-italic {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .poppins-medium-italic {
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .poppins-semibold-italic {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .poppins-bold-italic {
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .poppins-extrabold-italic {
+    font-family: "Poppins", serif;
+    font-weight: 800;
+    font-style: italic;
+  }
+  
+  .poppins-black-italic {
+    font-family: "Poppins", serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+  
+  
+
+.contact-container{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.contact-container h2 {
+    font-weight: 600;
+    font-size: 48px;
+    color:rgb(53, 53, 53);
+}
+.parent-container {
+
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+  }
+  
+  /* Main Container */
+  .main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 1200px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+ 
+    gap: 20px;
+    position: relative;
+  }
+  
+  /* Contact Form Container */
+  .contact-container {
+    flex: 1;
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+ 
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    font-weight: 500;
+    color: #2c3e50;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    min-height: 100px;
+  }
+  
+  /* Service Options Grid */
+  .service-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .service-option {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-height: 50px;
+  }
+  
+  .service-option:hover {
+    background: #f0f0f0;
+  }
+  
+  .service-option.selected {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  /* Submit Button */
+  .sub-button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .sub-button:hover {
+    background: #0056b3;
+  }
+  
+  /* Video Container */
+  .video-container {
+    flex: 1;
+    width: 50%;
+    position: relative;
+  }
+  
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  /* Tablet (Move Video to Bottom) */
+  /* Tablet (Full Visibility Adjustments) */
+  @media (max-width: 768px) {
+    .parent-container{
+        height: auto; /* Allow content to expand beyond viewport */
+        padding: 20px 0; /* Add some vertical spacing */
+    }
+  
+    .main-container {
+        flex-direction: column;
+        width: 100%;
+        max-width: 600px; /* Constrain width for better readability */
+        padding: 20px;
+        margin: 0 auto; /* Center container */
+        box-sizing: border-box;
+    }
+  
+    .contact-container {
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 20px; /* Space between form and video */
+    }
+  
+    .video-container {
+        width: 100%;
+        height: auto; /* Let height adjust naturally */
+        min-height: 300px; /* Ensure minimum visibility */
+        order: 2;
+    }
+  
+    .video-container video {
+        object-fit: contain; /* Show full video without cropping */
+        border-radius: 8px;
+    }
+  
+    .service-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+  
+    /* Improve form element spacing */
+    input, textarea {
+        padding: 10px;
+        font-size: 15px;
+    }
+    
+    button {
+        padding: 12px;
+    }
+  }
+  /* Mobile (Make Video Background) */
+  @media (max-width: 576px) {
+    .parent-container{
+        padding: 15px;
+        background: white;
+        height: auto;
+        min-height: 100vh;
+    }
+  
+    .main-container {
+        width: 100%;
+        padding: 15px;
+        margin: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+  
+    .contact-container {
+        width: 100%;
+        padding: 20px;
+        background: white;
+        backdrop-filter: blur(10px);
+        margin-bottom: 20px;
+    }
+  
+    .video-container {
+        width: 100%;
+        height: 200px;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+  
+    .video-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+  
+    .service-options {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+  
+    .service-option {
+        padding: 10px;
+        min-height: 40px;
+    }
+  
+    input, textarea, button {
+        font-size: 15px;
+    }
+  
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+  }
+  
+  
+  
+  
+  

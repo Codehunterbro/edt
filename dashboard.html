@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* CSS - Styles combined from both provided files */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        .header {
+            background-color: #ffffff;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .greeting {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .greeting h1 {
+            color: #673ab7;
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .greeting p {
+            color: #555;
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        .logout-button {
+            background-color: #673ab7;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            
+        }
+        .container1 {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        /* Top Buttons Section */
+        .top-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 13vw;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        .top-button {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px 20px;
+            text-align: center;
+            width: 170px;
+            height: 33px;
+            color: #333;
+        }
+
+        .top-button h4 {
+            font-size: 19px;
+        }
+
+        .logo-container {
+            margin-right: 12px;
+            height: 25px;
+            width: 25px;
+            /* Space between logo and text */
+        }
+
+        /* Courses Section */
+        .courses-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            /* Allows items to wrap on smaller screens */
+        }
+
+        .course-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 300px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .course-card img {
+            width: 100%;
+            /* Make images responsive */
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .course-title {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            /* Align items horizontally */
+            justify-content: flex-start;
+            /* Align content to the left */
+        }
+
+        .course-description {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .button-container {
+            padding: 10px 0;
+        }
+
+        .view-button {
+            display: inline-block;
+            background-color: #673ab7;
+            color: #fff;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Achievements Section */
+        .achievements-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .achievements-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .achievement-card {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .achievement-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .achievement-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        .achievement-actions a {
+            text-decoration: none;
+            background-color: #673ab7;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .tracker-container {
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 8px;
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .legend {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .legend-color {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%; /* Make the legend colors circles */
+        }
+
+        #month-labels {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-left: 20px;
+            margin-bottom: 5px;
+            font-size: 13px;
+            color: #767676;
+        }
+
+        .month-label {
+            width: calc(100% / 12);
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        #weekday-labels {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            gap: 22px;
+            font-size: 13px;
+            color: #767676;
+        }
+
+        #calendar-container {
+            display: flex;
+            align-items: flex-start;
+            overflow-x: auto;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .month-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .month-grid {
+            display: grid;
+            grid-template-rows: repeat(7, 12px);
+            grid-auto-flow: column;
+            gap: 7px;
+        }
+
+        .square {
+            width: 15px;
+            height: 15px;
+            background-color: #ebedf0;
+            border-radius: 2px;
+            transition: background-color 0.3s ease;
+            position: relative;
+        }
+
+        .square[data-level="1"] {
+            background-color: #00ff00; /* Present - Green */
+        }
+
+        .square[data-level="2"] {
+            background-color: #0ea716; /* Project - Purple */
+        }
+
+        .square[data-level="3"] {
+            background-color: #ff0000;  /* Absent - Red */
+        }
+
+        .square:hover::after {
+            content: attr(data-date);
+            position: absolute;
+            left: 50%;
+            top: -20px;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 4px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        .stats {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 6px;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            font-size: 12px;
+            color: #767676;
+        }
+
+        .stat-item {
+            padding: 5px;
+        }
+
+        .stat-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            .top-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .top-button {
+                width: 80%;
+            }
+
+            .courses-section,
+            .achievements-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .course-card,
+            .achievement-card {
+                width: 90%;
+            }
+        }
+
+        /* Styling for section headers */
+        h2 {
+            color: #333;
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="greeting">
+            <h1>Hello Admin</h1>
+            <p>Good Morning</p>
+        </div>
+        <a href="#" class="logout-button">Log Out</a>
+    </div>
+
+    <div class="container">
+
+
+        <div class="tracker-container">
+            <h2 class="title">Attendance Tracker Mar 2025 - Feb 2026</h2>
+    
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #EAEDF0"></div>
+                    <span>Not Yet</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #00ff00"></div>
+                    <span>Present</span>
+                </div>
+                 <div class="legend-item">
+                    <div class="legend-color" style="background-color: #0ea716"></div>
+                    <span>Project</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ff0000"></div>
+                    <span>Absent</span>
+                </div>
+            </div>
+            <div id="month-labels">
+                <!-- Month labels will be inserted here by JavaScript -->
+            </div>
+            <div class="row">
+                <div id="weekday-labels">
+                    <!-- Weekday labels will be inserted here by JavaScript -->
+                </div>
+                <div id="calendar-container">
+                    <!-- Calendar will be inserted here by JavaScript -->
+                </div>
+            </div>
+    
+            <div class="stats">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="total-days">0</div>
+                        <div class="stat-label">Total Days</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="present-days">0</div>
+                        <div class="stat-label">Present Days</div>
+                    </div>
+                      <div class="stat-item">
+                        <div class="stat-value" id="project-days">0</div>
+                        <div class="stat-label">Project Days</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="absent-days">0</div>
+                        <div class="stat-label">Absent Days</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+        <!-- Top Buttons Section -->
+        <div class="container1">
+            <!-- Top Buttons Section -->
+            <h2>Your Courses</h2>
+            <div class="top-buttons">
+                <div class="top-button">
+                    <div class="logo-container">
+                        <img src="./images/py logo.png" alt="Python Logo" width="25">
+                    </div>
+                    <h4> Python</h4>
+                </div>
+                <div class="top-button">
+                    <div class="logo-container">
+                        <img src="./images/py logo.png" alt="UI/UX Logo" width="25">
+                    </div>
+                    <h4>UI/UX</h4>
+                </div>
+                <div class="top-button">
+                    <div class="logo-container">
+                        <img src="./images/py logo.png" alt="Data Structure Logo" width="25">
+                    </div>
+                    <h4>Data Structure</h4>
+                </div>
+            </div>
+
+            <!-- Courses Section -->
+            
+            <div class="courses-section">
+                <div class="course-card">
+                    <img src="./images/Rectangle 132.png" alt="Python Course">
+                    <div class="course-title">
+                        <div class="logo-container">
+                            <img src="./images/py logo.png" alt="Python Logo" width="10">
+                        </div>
+                        Python Mastery
+                    </div>
+                    <p class="course-description">This Python Mastery Course takes you from the basics to advanced
+                        topics,
+                        covering Python syntax, data.</p>
+                    <div class="button-container">
+                        <a href="#" class="view-button">Start</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <img src="./images/Rectangle 132.png" alt="UI/UX Course">
+                    <div class="course-title">
+                        <div class="logo-container">
+                            <img src="./images/py logo.png" alt="UI/UX Logo" width="30">
+                        </div>
+                        UI/UX Design
+                    </div>
+                    <p class="course-description">The UI/UX Mastery Course guides you from the basics to advanced
+                        topics,
+                        covering design principles.</p>
+                    <div class="button-container">
+                        <a href="#" class="view-button">Start</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <img src="./images/Rectangle 132.png" alt="Data Structure Course">
+                    <div class="course-title">
+                        <div class="logo-container">
+                            <img src="./images/py logo.png" alt="Data Structure Logo" width="30">
+                        </div>
+                        Data Structures
+                    </div>
+                    <p class="course-description">This Data Structure Mastery Course takes you from the basics to
+                        advanced
+                        topics, covering tuples, dictionaries, and sets.</p>
+                    <div class="button-container">
+                        <a href="#" class="view-button">Start</a>
+                    </div>
+                </div>
+            </div>
+            <div class="achievements-section">
+                <h2>Your Achievement</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <img id="certificate1" src="./images/Rectangle 139.png" alt="Certificate 1">
+                        <div class="achievement-actions">
+                            <a href="#" onclick="previewImage('certificate1')">Preview</a>
+                            <a href="#" onclick="downloadImage('certificate1')">Download</a>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <img id="certificate2" src="./images/Rectangle 139.png" alt="Certificate 2">
+                        <div class="achievement-actions">
+                            <a href="#" onclick="previewImage('certificate2')">Preview</a>
+                            <a href="#" onclick="downloadImage('certificate2')">Download</a>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <img id="certificate3" src="./images/Rectangle 139.png" alt="Certificate 3">
+                        <div class="achievement-actions">
+                            <a href="#" onclick="previewImage('certificate3')">Preview</a>
+                            <a href="#" onclick="downloadImage('certificate3')">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievements Section -->
+        
+
+    
+
+    <script>
+
+         // Get references to the necessary elements
+         const calendarContainer = document.getElementById('calendar-container');
+        const weekdayLabelsContainer = document.getElementById('weekday-labels');
+        const monthLabelsContainer = document.getElementById('month-labels');
+
+        // Define colors for attendance levels
+        const colors = {
+            notYet: "#EAEDF0",
+            present: "#00ff00",
+            project: "#9370db",
+            absent: "#ff0000"
+        };
+
+        // Initialize statistics counters
+        const stats = {
+            present: 0,
+            project: 0,
+            absent: 0,
+            total: 0
+        };
+
+        // Define arrays for month and weekday labels
+        const months = ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb'];
+        const weekdays = ['Mon', 'Wed', 'Fri'];
+
+        /**
+         * Creates and appends weekday labels to the designated container.
+         */
+        function createWeekdayLabels() {
+            weekdays.forEach(day => {
+                const dayEl = document.createElement('div');
+                dayEl.classList.add('weekday');
+                dayEl.textContent = day;
+                weekdayLabelsContainer.appendChild(dayEl);
+            });
+        }
+
+        /**
+         * Creates and appends month labels to the designated container.
+         */
+        function createMonthLabels() {
+            months.forEach(month => {
+                const monthLabelEl = document.createElement('div');
+                monthLabelEl.classList.add('month-label');
+                monthLabelEl.textContent = month;
+                monthLabelsContainer.appendChild(monthLabelEl);
+            });
+        }
+
+        /**
+         * Creates a section for a given month in the calendar.
+         * @param {number} year The year for which to generate the month.
+         * @param {number} month The month (0-11) to generate.
+         * @param {number} monthIndex The index of the month in the year.
+         * @returns {HTMLDivElement} The container element for the month.
+         */
+        function createMonthSection(year, month, monthIndex) {
+            const monthContainer = document.createElement('div');
+            monthContainer.classList.add('month-container');
+
+            // Add margin to specific month containers (7th and 10th)
+            if (monthIndex === 7 || monthIndex === 10) {
+                monthContainer.style.marginRight = '15px';
+
+            }
+
+            const monthGrid = document.createElement('div');
+            monthGrid.classList.add('month-grid');
+
+            let yearToUse = year;
+            if (month === 0 || month === 1) {
+                yearToUse = 2026;
+            }
+            const firstDate = new Date(yearToUse, month, 1);
+            let firstDay = firstDate.getDay();
+            firstDay = firstDay === 0 ? 6 : firstDay - 1;
+
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.classList.add('square');
+                emptyDay.style.visibility = 'hidden';
+                monthGrid.appendChild(emptyDay);
+            }
+
+            const lastDate = new Date(yearToUse, month + 1, 0);
+            const totalDays = lastDate.getDate();
+            let currentDate = new Date();
+
+            // Adjust currentDate to be within the correct year
+            if (month >= 10) { // Nov and Dec
+                currentDate = new Date(2026, currentDate.getMonth(), currentDate.getDate());
+            }
+
+            for (let day = 1; day <= totalDays; day++) {
+                const date = new Date(yearToUse, month, day);
+                const square = document.createElement('div');
+                square.classList.add('square');
+                square.setAttribute('data-date', date.toLocaleDateString());
+
+                if (date <= currentDate) {
+                    stats.total++;
+                    const random = Math.random();
+                    if (random > 0.8) {
+                        square.setAttribute('data-level', 3); //Absent
+                        stats.absent++;
+                    }
+                      else if (random > 0.6) {
+                        square.setAttribute('data-level', 2); //project
+                        stats.project++;
+                    }
+                     else {
+                        square.setAttribute('data-level', 1); //present
+                        stats.present++;
+                    }
+                }
+                monthGrid.appendChild(square);
+            }
+
+            monthContainer.appendChild(monthGrid);
+            return monthContainer;
+        }
+
+        // Call functions to create labels
+        createWeekdayLabels();
+        createMonthLabels();
+
+        // Generate the calendar for the year 2025
+        for (let month = 2; month < 14; month++) {
+            let monthIndex = month % 12;
+            const monthSection = createMonthSection(2025, monthIndex, monthIndex);
+            calendarContainer.appendChild(monthSection);
+        }
+
+        // Update statistics display
+        document.getElementById('total-days').textContent = stats.total;
+        document.getElementById('present-days').textContent = stats.present;
+         document.getElementById('project-days').textContent = stats.project;
+        document.getElementById('absent-days').textContent = stats.absent;
+
+
+
+
+        /* JavaScript */
+        function previewImage(imgId) {
+            const imgElement = document.getElementById(imgId);
+            const imageUrl = imgElement.src;
+            window.open(imageUrl, '_blank'); // Open in a new tab
+        }
+
+        function downloadImage(imgId) {
+            const imgElement = document.getElementById(imgId);
+            const imageUrl = imgElement.src;
+            const imageName = imgElement.alt + '.png'; // You can change the extension if needed
+
+            // Create a temporary link element
+            const a = document.createElement('a');
+            a.href = imageUrl;
+            a.download = imageName; // Set the file name
+
+            // Programmatically trigger the download
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a); // Clean up
+        }
+    </script>
+
+</body>
+
+</html>

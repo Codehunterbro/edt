@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: whitesmoke;
+        }
+
+        .auth-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 400px;
+            margin: 1rem;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.9rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #6c40ff;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.9rem;
+            background: #6c40ff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin: 1rem 0;
+        }
+
+        button:hover {
+            background: #5a35d6;
+        }
+
+        .toggle-form {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .toggle-link {
+            color: #6c40ff;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .error-message {
+            color: #ff3333;
+            background: #ffe6e6;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .terms-text {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            margin: 1rem 0;
+        }
+
+        .terms-text a {
+            color: #6c40ff;
+            text-decoration: none;
+        }
+
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            color: #666;
+            border: 1px solid #ddd;
+            gap: 10px;
+        }
+
+        .google-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .google-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+        }
+
+        .divider hr {
+            flex-grow: 1;
+            border: none;
+            height: 1px;
+            background: #eee;
+        }
+
+        .divider span {
+            padding: 0 10px;
+            color: #999;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="auth-container">
+        <!-- Register Form -->
+        <div id="registerForm" style="display: none;">
+            <h2>Sign up and start Learning</h2>
+            <form>
+                <div class="form-group">
+                    <input type="text" id="regFirstName" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="regLastName" placeholder="Last Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="regEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="regPassword" placeholder="Password" required>
+                </div>
+                <button type="submit">Sign up</button>
+            </form>
+            <p class="terms-text">By signing up, you agree to our <a href="#">Terms & Conditions</a></p>
+            <div class="toggle-form">
+                <span>Already have an account? </span><a id="showLogin" class="toggle-link">Log in</a>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm">
+            <h2>Welcome Back</h2>
+            <form>
+                <div class="form-group">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <button type="submit">Log in</button>
+            </form>
+            <p class="terms-text">By logging in, you agree to our <a href="#">Terms & Conditions</a></p>
+            
+            <div class="divider">
+                <hr><span>OR</span><hr>
+            </div>
+            
+            <button id="googleSignIn" class="google-btn">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/google.svg" alt="Google logo">
+                <span>Sign in with Google</span>
+            </button>
+            
+            <div class="toggle-form">
+                <span>Don't have an account? </span><a id="showRegister" class="toggle-link">Register</a>
+            </div>
+        </div>
+
+        <!-- User Info -->
+        <div id="userInfo" style="display: none;">
+            <h2>Welcome, <span id="userName"></span>!</h2>
+            <button id="logoutBtn">Logout</button>
+        </div>
+
+        <div id="errorDisplay" class="error-message"></div>
+    </section>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCAKDl2-sbiFXTOWnkiQrIQ-D_7OMPxhHg",
+            authDomain: "log-in-auth-23d1b.firebaseapp.com",
+            databaseURL: "https://log-in-auth-23d1b-default-rtdb.firebaseio.com",
+            projectId: "log-in-auth-23d1b",
+            storageBucket: "log-in-auth-23d1b.firebasestorage.app",
+            messagingSenderId: "108784645260",
+            appId: "1:108784645260:web:4c7f0954bae0ee3b5f77a9",
+            measurementId: "G-0EL3G4N2SH"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+        const googleProvider = new GoogleAuthProvider();
+
+        // DOM Elements
+        const registerForm = document.getElementById('registerForm');
+        const loginForm = document.getElementById('loginForm');
+        const userInfo = document.getElementById('userInfo');
+        const userName = document.getElementById('userName');
+        const showLoginBtn = document.getElementById('showLogin');
+        const showRegisterBtn = document.getElementById('showRegister');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const errorDisplay = document.getElementById('errorDisplay');
+        const googleSignInBtn = document.getElementById('googleSignIn');
+
+        // Error handling function
+        function showError(error) {
+            console.error('Error:', error);
+            errorDisplay.style.display = 'block';
+            errorDisplay.textContent = error.message || 'An error occurred';
+            setTimeout(() => {
+                errorDisplay.style.display = 'none';
+            }, 5000);
+        }
+
+        // Handle Google Sign In
+        async function handleGoogleSignIn() {
+            try {
+                const result = await signInWithPopup(auth, googleProvider);
+                const user = result.user;
+                
+                // Check if user exists in database
+                const dbRef = ref(database);
+                const snapshot = await get(child(dbRef, `users/${user.uid}`));
+                
+                if (!snapshot.exists()) {
+                    // Store new user data
+                    const userData = {
+                        firstName: user.displayName?.split(' ')[0] || '',
+                        lastName: user.displayName?.split(' ').slice(1).join(' ') || '',
+                        email: user.email,
+                        createdAt: new Date().toISOString()
+                    };
+                    
+                    await set(ref(database, `users/${user.uid}`), userData);
+                }
+                
+                const userData = snapshot.exists() ? snapshot.val() : {
+                    firstName: user.displayName?.split(' ')[0] || '',
+                    lastName: user.displayName?.split(' ').slice(1).join(' ') || ''
+                };
+                
+                showUserInfo(`${userData.firstName} ${userData.lastName}`);
+            } catch (error) {
+                showError(error);
+            }
+        }
+
+        // Add click event listener to Google sign-in button
+        googleSignInBtn.addEventListener('click', handleGoogleSignIn);
+
+        // Register new user
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('regFirstName').value.trim();
+            const lastName = document.getElementById('regLastName').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            const password = document.getElementById('regPassword').value;
+
+            try {
+                console.log('Starting registration process...');
+                
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                console.log('User created in Auth:', user.uid);
+
+                const userData = {
+                    firstName,
+                    lastName,
+                    email,
+                    createdAt: new Date().toISOString()
+                };
+
+                console.log('Preparing to store user data:', userData);
+                await set(ref(database, `users/${user.uid}`), userData);
+                console.log('User data stored in Database');
+
+                registerForm.reset();
+                showUserInfo(`${firstName} ${lastName}`);
+            } catch (error) {
+                showError(error);
+            }
+        });
+
+        // Login existing user
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value;
+
+            try {
+                console.log('Starting login process...');
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                
+                console.log('User logged in:', user.uid);
+                const dbRef = ref(database);
+                const snapshot = await get(child(dbRef, `users/${user.uid}`));
+                
+                if (snapshot.exists()) {
+                    const userData = snapshot.val();
+                    console.log('User data retrieved:', userData);
+                    loginForm.reset();
+                    showUserInfo(`${userData.firstName} ${userData.lastName}`);
+                } else {
+                    throw new Error('User data not found');
+                }
+            } catch (error) {
+                showError(error);
+            }
+        });
+
+        // Logout user
+        logoutBtn.addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+                showLoginForm();
+            } catch (error) {
+                showError(error);
+            }
+        });
+
+        // Check auth state
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                try {
+                    const dbRef = ref(database);
+                    const snapshot = await get(child(dbRef, `users/${user.uid}`));
+                    if (snapshot.exists()) {
+                        const userData = snapshot.val();
+                        showUserInfo(`${userData.firstName} ${userData.lastName}`);
+                    }
+                } catch (error) {
+                    showError(error);
+                }
+            } else {
+                showLoginForm();
+            }
+        });
+
+        // UI Functions
+        function showUserInfo(fullName) {
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'none';
+            userInfo.style.display = 'block';
+            userName.textContent = fullName;
+        }
+
+        function showLoginForm() {
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'block';
+            userInfo.style.display = 'none';
+        }
+
+        // Toggle between forms
+        showLoginBtn.addEventListener('click', () => {
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'block';
+            userInfo.style.display = 'none';
+        });
+
+        showRegisterBtn.addEventListener('click', () => {
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+            userInfo.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
